@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var player = null
+@onready var player = $Player
+@onready var start = $Start
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
