@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf2wl31na82h6"]
+[gd_scene load_steps=9 format=3 uid="uid://bf2wl31na82h6"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_lsvxq"]
 [ext_resource type="PackedScene" uid="uid://ew3cxtfat4r2" path="res://scenes/player.tscn" id="1_y0jh4"]
-[ext_resource type="PackedScene" path="res://scenes/start.tscn" id="2_it440"]
+[ext_resource type="PackedScene" uid="uid://dyh8w4xeufh18" path="res://scenes/start.tscn" id="2_it440"]
 [ext_resource type="Texture2D" uid="uid://ghn7rfc0q6gp" path="res://assets/platforms.png" id="3_yssqv"]
+[ext_resource type="PackedScene" uid="uid://de5yx2pr0bg7h" path="res://scenes/end.tscn" id="5_adw5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcpnx"]
+size = Vector2(48, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfaru"]
 texture = ExtResource("3_yssqv")
@@ -916,7 +920,18 @@ position = Vector2(89, 125)
 
 [node name="Player" parent="." instance=ExtResource("1_y0jh4")]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Area2D2" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Area2D2"]
+shape = SubResource("RectangleShape2D_jcpnx")
+
+[node name="TileMap" type="TileMap" parent="." groups=["walls"]]
 tile_set = SubResource("TileSet_mcf7x")
 format = 2
 layer_0/tile_data = PackedInt32Array(524296, 1, 7, 458761, 1, 7, 393226, 65537, 6, 196621, 65537, 6, 458762, 65537, 7, 262157, 65537, 7, 196622, 65537, 7, 131086, 65537, 6, 262158, 65537, 8, 327693, 65537, 8, 262156, 65537, 6, 327692, 65537, 7, 393228, 65537, 8, 393227, 65537, 7, 458763, 65537, 8, 327691, 65537, 6, 524297, 65537, 7)
+
+[node name="End" parent="." instance=ExtResource("5_adw5m")]
+position = Vector2(280, -32)
+
+[connection signal="body_entered" from="Player/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]

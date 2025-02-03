@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://de5yx2pr0bg7h"]
+
+[ext_resource type="Texture2D" uid="uid://dllk2uys4sbhh" path="res://assets/end_tile.png" id="1_bojtm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ou7"]
+size = Vector2(64, 64)
+
+[node name="End" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bojtm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13ou7")
