@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyh8w4xeufh18"]
+
+[ext_resource type="Texture2D" uid="uid://cr3axhqj2b3cc" path="res://assets/start_tile.png" id="1_nru45"]
+[ext_resource type="Script" path="res://scripts/start.gd" id="2_gq75b"]
+
+[node name="Start" type="Sprite2D"]
+texture = ExtResource("1_nru45")
+script = ExtResource("2_gq75b")
+
+[node name="Spawn" type="Marker2D" parent="."]
