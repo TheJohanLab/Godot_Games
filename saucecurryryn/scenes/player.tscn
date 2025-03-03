@@ -24,3 +24,8 @@ shape = SubResource("RectangleShape2D_c67p7")
 texture = ExtResource("1_nne3a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hit_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="hit_cooldown" to="." method="_on_hit_cooldown_timeout"]

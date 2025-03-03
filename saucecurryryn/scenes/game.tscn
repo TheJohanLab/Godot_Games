@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf2wl31na82h6"]
+[gd_scene load_steps=10 format=3 uid="uid://bf2wl31na82h6"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_lsvxq"]
 [ext_resource type="PackedScene" uid="uid://ew3cxtfat4r2" path="res://scenes/player.tscn" id="1_y0jh4"]
+[ext_resource type="PackedScene" uid="uid://ctj6wo8fu5olh" path="res://scenes/UIlayer.tscn" id="2_ii6b1"]
 [ext_resource type="PackedScene" uid="uid://dyh8w4xeufh18" path="res://scenes/start.tscn" id="2_it440"]
 [ext_resource type="Texture2D" uid="uid://ghn7rfc0q6gp" path="res://assets/platforms.png" id="3_yssqv"]
 [ext_resource type="PackedScene" uid="uid://de5yx2pr0bg7h" path="res://scenes/end.tscn" id="5_adw5m"]
@@ -914,6 +915,8 @@ sources/1 = SubResource("TileSetAtlasSource_mfaru")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lsvxq")
+
+[node name="UIlayer" parent="." instance=ExtResource("2_ii6b1")]
 
 [node name="Start" parent="." instance=ExtResource("2_it440")]
 position = Vector2(89, 125)
