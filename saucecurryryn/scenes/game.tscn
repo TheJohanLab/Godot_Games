@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf2wl31na82h6"]
+[gd_scene load_steps=11 format=3 uid="uid://bf2wl31na82h6"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_lsvxq"]
 [ext_resource type="PackedScene" uid="uid://ew3cxtfat4r2" path="res://scenes/player.tscn" id="1_y0jh4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyh8w4xeufh18" path="res://scenes/start.tscn" id="2_it440"]
 [ext_resource type="Texture2D" uid="uid://ghn7rfc0q6gp" path="res://assets/platforms.png" id="3_yssqv"]
 [ext_resource type="PackedScene" uid="uid://de5yx2pr0bg7h" path="res://scenes/end.tscn" id="5_adw5m"]
+[ext_resource type="PackedScene" uid="uid://nb4pdme11li2" path="res://scenes/spring.tscn" id="7_ddogi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcpnx"]
 size = Vector2(48, 6)
@@ -935,6 +936,10 @@ layer_0/tile_data = PackedInt32Array(524296, 1, 7, 458761, 1, 7, 393226, 65537, 
 
 [node name="End" parent="." instance=ExtResource("5_adw5m")]
 position = Vector2(280, -32)
+
+[node name="spring" parent="." instance=ExtResource("7_ddogi")]
+position = Vector2(75, 21)
+rotation = 1.5708
 
 [connection signal="body_entered" from="Player/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]

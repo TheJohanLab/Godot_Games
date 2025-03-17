@@ -25,7 +25,12 @@ texture = ExtResource("1_nne3a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="bonk_cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [node name="hit_cooldown" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="timeout" from="bonk_cooldown" to="." method="_on_bonk_cooldown_timeout"]
 [connection signal="timeout" from="hit_cooldown" to="." method="_on_hit_cooldown_timeout"]

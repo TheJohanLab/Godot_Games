@@ -27,9 +27,12 @@ func _on_end_body_entered(body: Node2D) -> void:
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("walls") and player.hittable:
 		player.hittable = false
+		player.bonk = true
 		current_HP -= 1
 		HPlabel.set_hp_label(current_HP)
-		player.start_timer()
+		player.player_hit()
+		player.start_hit_timer()
+		player.start_bonk_timer()
 		if current_HP <= 0:
 			reset_player()
 
